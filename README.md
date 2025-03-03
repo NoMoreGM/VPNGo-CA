@@ -37,6 +37,14 @@ This project is useful for:
 ✅ **Modular design, clean and extendable code**  
 
 ---
+🛠 目录结构 / Project Structure
+VPNGo-CA/
+│── main.go          # 入口文件，一键执行所有步骤
+│── ca/ca.go         # 生成 Root CA
+│── csr/csr.go       # 生成服务器 CSR
+│── sign/sign.go     # 用 Root CA 签发服务器证书
+│── utils/utils.go   # 通用工具函数（如 savePEM, LoadPrivateKey 等）
+
 ## 🚀 特别鸣谢 / Special Thanks
 
 🎩 **特别鸣谢 [ChatGPT](https://openai.com/chatgpt)，它在整个 TLS 证书系统的设计、代码优化、报错修复、README 编写等方面提供了完全无可匹敌的帮助！**  
