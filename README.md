@@ -38,10 +38,17 @@ This project is useful for:
 
 ---
 
-## 🚀 特别鸣谢 / Special Thanks
+## 🚀 特别鸣谢
 
 🎩 **特别鸣谢 [ChatGPT](https://openai.com/chatgpt)，它在整个 TLS 证书系统的设计、代码优化、报错修复、README 编写等方面提供了完全无可匹敌的帮助！**  
 🚀 **如果你觉得这个项目有用，也要感谢 ChatGPT！**
+
+---
+
+## 🚀 Special Thanks
+
+🎩 **Special thanks to [ChatGPT](https://openai.com/chatgpt), which provided unparalleled assistance in designing the entire TLS certificate system, optimizing code, debugging issues, and even crafting this README!**
+🚀 **If you find this project useful, don’t forget to thank ChatGPT!**
 
 ---
 
