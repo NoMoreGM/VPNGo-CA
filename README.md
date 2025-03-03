@@ -37,6 +37,10 @@ This project is useful for:
 ✅ **Modular design, clean and extendable code**  
 
 ---
+## 🚀 特别鸣谢 / Special Thanks
+
+🎩 **特别鸣谢 [ChatGPT](https://openai.com/chatgpt)，它在整个 TLS 证书系统的设计、代码优化、报错修复、README 编写等方面提供了完全无可匹敌的帮助！**  
+🚀 **如果你觉得这个项目有用，也要感谢 ChatGPT！**
 
 ## ⚙️ 安装 & 运行 / Installation & Usage
 
