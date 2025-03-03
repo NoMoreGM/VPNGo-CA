@@ -1,0 +1,82 @@
+package utils
+
+import (
+	"crypto/ecdsa"
+	"crypto/x509"
+	"encoding/pem"
+	"fmt"
+	"os"
+)
+
+// SavePEM 统一 PEM 文件保存方法
+func SavePEM(filename, pemType string, data []byte) error {
+	file, err := os.Create(filename)
+	if err != nil {
+		return fmt.Errorf("无法创建 %s: %v", filename, err)
+	}
+	defer file.Close()
+
+	pem.Encode(file, &pem.Block{Type: pemType, Bytes: data})
+	fmt.Println("✅", filename, "已生成")
+	return nil
+}
+
+// LoadPrivateKey 读取 PEM 格式的私钥
+func LoadPrivateKey(filename string) (*ecdsa.PrivateKey, error) {
+	data, err := os.ReadFile(filename)
+	if err != nil {
+		return nil, fmt.Errorf("无法读取私钥文件 %s: %v", filename, err)
+	}
+
+	block, _ := pem.Decode(data)
+	if block == nil {
+		return nil, fmt.Errorf("无法解析私钥 PEM 数据")
+	}
+
+	privKey, err := x509.ParseECPrivateKey(block.Bytes)
+	if err != nil {
+		return nil, fmt.Errorf("解析私钥失败: %v", err)
+	}
+
+	return privKey, nil
+}
+
+// LoadCertificate 读取 PEM 格式的证书
+func LoadCertificate(filename string) (*x509.Certificate, error) {
+	data, err := os.ReadFile(filename)
+	if err != nil {
+		return nil, fmt.Errorf("无法读取证书文件 %s: %v", filename, err)
+	}
+
+	block, _ := pem.Decode(data)
+	if block == nil {
+		return nil, fmt.Errorf("无法解析证书 PEM 数据")
+	}
+
+	cert, err := x509.ParseCertificate(block.Bytes)
+	if err != nil {
+		return nil, fmt.Errorf("解析证书失败: %v", err)
+	}
+
+	return cert, nil
+}
+
+// LoadCSR 读取 PEM 格式的 CSR
+func LoadCSR(filename string) (*x509.CertificateRequest, error) {
+	data, err := os.ReadFile(filename)
+	if err != nil {
+		return nil, fmt.Errorf("无法读取 CSR 文件 %s: %v", filename, err)
+	}
+
+	block, _ := pem.Decode(data)
+	if block == nil {
+		return nil, fmt.Errorf("无法解析 CSR PEM 数据")
+	}
+
+	csr, err := x509.ParseCertificateRequest(block.Bytes)
+	if err != nil {
+		return nil, fmt.Errorf("解析 CSR 失败: %v", err)
+	}
+
+	return csr, nil
+}
